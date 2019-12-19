@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-Br">
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta charset="utf-8">
     <style>
     .td_dados{
@@ -17,7 +18,9 @@
 <body>
 
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-        <h5 class="my-0 mr-md-auto font-weight-normal">William Rett</h5>
+      <h5 class="my-0 mr-md-auto font-weight-normal">
+        <a class="btn btn-outline-primary" href="http://127.0.0.1:8000">William Rett</a>
+        </h5>
         <nav class="my-2 my-md-0 mr-md-3">
           <a class="p-2 text-dark" href="http://127.0.0.1:8000/user">Lista de Usuarios</a>
         </nav>
@@ -54,14 +57,28 @@
                             <td>{{$user->password}}</td>
                             <td>{{$user->latitude}}</td>
                             <td>{{$user->longitude}}</td>
-                            <td><a href="http://127.0.0.1:8000/user/{{$user->id}}">Deletar</a></td>
-                            <td><a href="http://127.0.0.1:8000/user/{{$user->id}}">Update</td>
+                        <td><a onclick="rec({{$user->id}},'DELETE')" href="#">Deletar</a></td>
                         </tr>
                         @endforeach
                   </tbody>
                   </table>
                  </div>
-        </div>
+                </div>
         </div>
 </body>
+<script>
+  var rec = function(id,method){
+    var url = 'http://127.0.0.1:8000/user/';
+     $.ajax({
+      url: url+id,
+      method:method,
+      dataType :'json',
+      data : '',
+      success :  function(data){
+        alert('usuario deletado com sucesso');                   
+       }
+     });
+   }
+   
+ </script>
 </html>

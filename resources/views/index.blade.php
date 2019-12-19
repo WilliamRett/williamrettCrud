@@ -20,15 +20,17 @@
   <body>
 
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-      <h5 class="my-0 mr-md-auto font-weight-normal">William Rett</h5>
+      <h5 class="my-0 mr-md-auto font-weight-normal">
+        <a class="btn btn-outline-primary" href="http://127.0.0.1:8000">William Rett</a>
+        </h5>
       <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#">Sobre William</a>
+        <a class="p-2 text-dark" href="http://127.0.0.1:8000/user">Lista de Usuarios</a>
       </nav>
       <a class="btn btn-outline-primary" href="http://127.0.0.1:8000/user">Cadastro</a>
     </div>
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <h1 class="display-4">Projoto Teste </h1>
+      <h1 class="display-4">Projoto Piloto #1 </h1>
       <p class="lead">Famoso Crud</p>  
     
     </div>
@@ -45,29 +47,7 @@
 </div>
 
 
-      <footer class="pt-3 my-md-5 pt-md-5 border-top">
-        <div class="row">
-          <div class="col-3 col-md" style="margin-left: 15px;">
-            <img class="mb-2" src="../../assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
-            <small class="d-block mb-3 text-muted">&copy; 2019</small>
-          </div>
-          <div class="col-3 col-md">
-            <h5>Features</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Linkedin</a></li>
-              <li><a class="text-muted" href="#">Facebook</a></li>
-              <li><a class="text-muted" href="#">Curriculo</a></li>
-            </ul>
-          </div>
-          <div class="col-3 col-md">
-            <h5>Fontes</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="https://laravel.com/docs/6.x " > Laravel</a></li>
-            </ul>
-          </div>
-       
-        </div>
-      </footer>
+    
     </div>
 
     <script>
