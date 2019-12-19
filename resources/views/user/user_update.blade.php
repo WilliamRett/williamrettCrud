@@ -33,12 +33,12 @@
       <div class="row">    
         <div class="col-md-12 order-md-1" style="padding:15px;">
           <h4 class="mb-3">Dados Usuario</h4>
-            <form class="needs-validation" novalidate name="cadastro">
+            <form class="needs-validation" >
               <div class="row">
                 <div class="col-md-6 mb-3">
                   @foreach ($users as $user)
-                  <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="" value="{{$user->name}}" required>
+                  <label for="name">Nome</label>
+                <input type="text" class="form-control" id="name" placeholder="" value="{{$user->name}}" required>
                   <div class="invalid-feedback">
                     Valid Nome is required.
                   </div>
@@ -74,13 +74,13 @@
                 </div>
                 <div class="mb-3">
                   <label for="logitude">Longitude</label>
-                  <input type="text" class="form-control" id="logitude" placeholder="34º 53´W" value="{{$user->longitude}}" required>
+                  <input type="text" class="form-control" id="longitude" placeholder="34º 53´W" value="{{$user->longitude}}" required>
                   <div class="invalid-feedback">
                       Please enter a valid logitude.
-                  </div>
+                  </div>                  
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Atualizar Usuario</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="rec({{$user->id}})">Atualizar Usuario</button>
               </form>                       
           @endforeach
       <footer class="my-5 pt-5 text-muted text-center text-small">
@@ -93,20 +93,31 @@
       </footer>
     </div>
     <script>
-      (function() {'use strict'; window.addEventListener('load', function() {
-          var forms = document.getElementsByClassName('needs-validation');
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
-   
+              var name = document.getElementById("name").value;
+              var document = document.getElementById("document").value;
+              var password = document.getElementById("password").value;
+              var email = document.getElementById("email").value;
+              var latitude = document.getElementById("latitude").value;
+              var longitude = document.getElementById("longitude").value;
+              var rec = function(id){
+              var url = 'http://127.0.0.1:8000/user/'
+              $.ajax({
+                        url: url+id,
+                        method:'PATCH',
+                        dataType :'json',
+                        data : {
+                          name:name,
+                          document:document,
+                          password:password,
+                          email:email,
+                          latitude:latitude,
+                          longitude:longitude
+                        },
+                        success :  function(data){
+                          alert('usuario atualizado com sucesso');                   
+                        }
+           });
+   }
    </script>
   </body>
 </html>

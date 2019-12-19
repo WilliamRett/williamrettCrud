@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -80,7 +81,7 @@
                   </div>
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Cadastrar Usuario</button>
+                <a class="btn btn-primary btn-lg btn-block" href="#" onclick="rec()">Cadastrar Usuario</a>
               </form>       
       <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">&copy; 2019 William Rett</p>
@@ -92,19 +93,32 @@
       </footer>
     </div>
     <script>
-      (function() {'use strict'; window.addEventListener('load', function() {
-          var forms = document.getElementsByClassName('needs-validation');
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
+              var name = document.getElementById("name").value;
+              var document = document.getElementById("document").value;
+              var password = document.getElementById("password").value;
+              var email = document.getElementById("email").value;
+              var latitude = document.getElementById("latitude").value;
+              var longitude = document.getElementById("longitude").value;
+               var rec = function(){
+              var url = 'http://127.0.0.1:8000/user/'
+              $.ajax({
+                        url: url,
+                        method:'POST',
+                        dataType :'json',
+                        data : {
+                          name:name,
+                          document:document,
+                          password:password,
+                          email:email,
+                          latitude:latitude,
+                          longitude:longitude
+                        },
+                        success :  function(data){
+                          alert('usuario Criado com sucesso');                   
+                        }
+           });
+   }
+     
    
    </script>
   </body>

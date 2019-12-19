@@ -39,6 +39,7 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|min:2|max:100',
             'document' => 'required|string|min:11|max:18',
+            'password' => 'required|string|min:11|max:18',
             'email' => 'required|email',
             'latitude'=>'required|string',
             'longitude'=>'required|string'
@@ -84,6 +85,7 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|min:2|max:100',
             'document' => 'required|string|min:11|max:18',
+            'password' => 'required|string|min:11|max:18',
             'email' => 'required|email',
             'latitude'=>'required|string',
             'longitude'=>'required|string'
