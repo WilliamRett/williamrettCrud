@@ -24,7 +24,7 @@
         <nav class="my-2 my-md-0 mr-md-3">
           <a class="p-2 text-dark" href="http://127.0.0.1:8000/user">Lista de Usuarios</a>
         </nav>
-        <a class="btn btn-outline-primary" href="http://127.0.0.1:8000/user">Cadastro</a>
+        <a class="btn btn-outline-primary" href="http://127.0.0.1:8000/user/create">Cadastro</a>
       </div>
   
       <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -44,7 +44,7 @@
                         <th scope="col">Latitude</th>
                         <th scope="col">Longitude</th>
                         <th scope="col">Delete</th>
-                        <th scope="col">Atualizar</th>
+                        <th scope="col">Update</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -57,13 +57,22 @@
                             <td>{{$user->password}}</td>
                             <td>{{$user->latitude}}</td>
                             <td>{{$user->longitude}}</td>
-                        <td><a onclick="rec({{$user->id}},'DELETE')" href="#">Deletar</a></td>
+                            <td><a onclick="rec({{$user->id}},'DELETE')" href="#">Deletar</a></td>
+                            <td><a href="http://127.0.0.1:8000/user/{{$user->id}}/edit">Update</a></td>
                         </tr>
                         @endforeach
                   </tbody>
                   </table>
                  </div>
                 </div>
+                <footer class="my-5 pt-5 text-muted text-center text-small">
+                  <p class="mb-1">&copy; 2019 William Rett</p>
+                  <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#">Privacy</a></li>
+                    <li class="list-inline-item"><a href="#">Terms</a></li>
+                    <li class="list-inline-item"><a href="#">Support</a></li>
+                  </ul>
+                </footer>
         </div>
 </body>
 <script>
