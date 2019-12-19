@@ -36,16 +36,16 @@
             <form class="needs-validation" novalidate name="cadastro">
               <div class="row">
                 <div class="col-md-6 mb-3">
-                  
+                  @foreach ($users as $user)
                   <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="" value="" required>
+                <input type="text" class="form-control" id="nome" placeholder="" value="{{$user->name}}" required>
                   <div class="invalid-feedback">
                     Valid Nome is required.
                   </div>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="document">CPF|CNPJ</label>
-                  <input type="text" class="form-control" id="document" placeholder="" value=""  required>
+                  <input type="text" class="form-control" id="document" placeholder="" value="{{$user->document}}"  required>
                   <div class="invalid-feedback">
                     Valid cpf/cnpj is required.
                   </div>
@@ -53,35 +53,36 @@
               </div>
               <div class="mb-3">
                   <label for="password">Password</label>
-                  <input type="text" class="form-control" id="password" placeholder="password" value=""  required>
+                  <input type="text" class="form-control" id="password" placeholder="password" value="{{$user->password}}"  required>
                   <div class="invalid-feedback">
                     Please enter a valid email address for shipping updates.
                   </div>
                 </div>
               <div class="mb-3">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="you@example.com" value=""  required>
+                <input type="email" class="form-control" id="email" placeholder="you@example.com" value="{{$user->email}}"  required>
                 <div class="invalid-feedback">
                   Please enter a valid email address for shipping updates.
                 </div>
               </div>
               <div class="mb-3">
                   <label for="latitude">Latitude</label>
-                  <input type="text" class="form-control" id="latitude" placeholder="22º 55´S"  value="" required>
+                  <input type="text" class="form-control" id="latitude" placeholder="22º 55´S"  value="{{$user->latitude}}" required>
                   <div class="invalid-feedback">
                     P Please enter a valid latitude.
                   </div>
                 </div>
                 <div class="mb-3">
                   <label for="logitude">Longitude</label>
-                  <input type="text" class="form-control" id="logitude" placeholder="34º 53´W" value="" required>
+                  <input type="text" class="form-control" id="logitude" placeholder="34º 53´W" value="{{$user->longitude}}" required>
                   <div class="invalid-feedback">
                       Please enter a valid logitude.
                   </div>
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Cadastrar Usuario</button>
-              </form>       
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Atualizar Usuario</button>
+              </form>                       
+          @endforeach
       <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">&copy; 2019 William Rett</p>
         <ul class="list-inline">

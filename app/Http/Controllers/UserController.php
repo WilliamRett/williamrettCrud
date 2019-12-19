@@ -69,7 +69,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $user=User::find($user);
-        return view('user.user')->with(['user'=>$user]);
+        return view('user.user_update')->with(['users'=>$user]);
     }
 
     /**

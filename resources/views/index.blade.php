@@ -7,12 +7,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
-
-    <title>Tabela de preços, usando Bootstrap.</title>
-
+    <title>CRUD WILLIAM</title>
     <!-- Principal CSS do Bootstrap -->
     <link href="{{ asset('css/app.css')}}" rel="stylesheet">
-
     <!-- Estilos customizados para esse template -->
     <link href="pricing.css" rel="stylesheet">
   </head>
