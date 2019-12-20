@@ -92,6 +92,33 @@
         </ul>
       </footer>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script>
+      // Exemplo de JavaScript para desativar o envio do formulário, se tiver algum campo inválido.
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Selecione todos os campos que nós queremos aplicar estilos Bootstrap de validação customizados.
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Faz um loop neles e previne envio
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
     <script>
               var name = document.getElementById("name").value;
               var document = document.getElementById("document").value;
@@ -99,25 +126,23 @@
               var email = document.getElementById("email").value;
               var latitude = document.getElementById("latitude").value;
               var longitude = document.getElementById("longitude").value;
-              var rec = function(id){
               var url = 'http://127.0.0.1:8000/user/'
-              $.ajax({
-                        url: url+id,
-                        method:'PATCH',
-                        dataType :'json',
-                        data : {
-                          name:name,
-                          document:document,
-                          password:password,
-                          email:email,
-                          latitude:latitude,
-                          longitude:longitude
-                        },
-                        success :  function(data){
-                          alert('usuario atualizado com sucesso');                   
-                        }
-           });
-   }
+              var rec = function(){
+                        $.ajax({
+                          url: url+id,
+                          method:'POST',
+                          dataType :'json',
+                          data : $(this).serialize(),
+                          success :  function(response){
+                            alert(response);                   
+                          },
+                          error:function(response){
+                            alert(response);
+                          },
+                        });
+                      }
+   
+   
    </script>
   </body>
 </html>
